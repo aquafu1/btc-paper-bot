@@ -1,0 +1,40 @@
+name: Backtest strategies
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "How many days of history to test on"
+        default: "21"
+  push:
+    paths:
+      - "bot/strategies.py"
+      - "bot/backtest.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-trade
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run backtest
+        run: python -m bot.backtest ${{ github.event.inputs.days || '21' }}
+      - name: Save report
+        run: |
+          git config user.name "paper-bot"
+          git config user.email "paper-bot@users.noreply.github.com"
+          git add results/backtest_report.md
+          git diff --cached --quiet && exit 0
+          git commit -m "backtest report"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1

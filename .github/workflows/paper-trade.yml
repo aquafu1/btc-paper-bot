@@ -1,0 +1,35 @@
+name: Paper trade (every 15 min)
+
+on:
+  schedule:
+    # 1 min after each 15-min window opens. GitHub can run these a few minutes late.
+    - cron: "1,16,31,46 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-trade
+  cancel-in-progress: false
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run paper trader
+        run: python -m bot.live
+      - name: Save results
+        run: |
+          git config user.name "paper-bot"
+          git config user.email "paper-bot@users.noreply.github.com"
+          git add results/
+          git diff --cached --quiet && exit 0
+          git commit -m "paper trades $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          exit 1
