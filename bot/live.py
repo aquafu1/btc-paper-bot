@@ -79,16 +79,27 @@ def enter(rows, now):
     if poly is None and delay > config.MAX_ENTRY_DELAY_SIM_PRICE:
         return f"skipped: no Polymarket price and {delay//60} min into window"
 
-    hist = data.coinbase_candles(ws - 61 * 60, ws)
+    allc = data.coinbase_candles(ws - 61 * 60, now)
+    hist = [c for c in allc if c["t"] < ws]
+    # only minutes that have fully closed inside this window
+    window = [c for c in allc if ws <= c["t"] and c["t"] + 60 <= now]
     if len(hist) < 55:
         return "skipped: not enough candle history"
+    secs_left = ws + config.WINDOW_SECONDS - now
 
     strats = strategies.all_strategies()
     rng = random.Random(ws)
     made = 0
     for name in strategies.LIVE:
         fn = strats[name]
-        pick = fn(hist, rng) if name == "coinflip" else fn(hist)
+        if getattr(fn, "needs_market", False):
+            if not poly:
+                continue
+            pick = fn(hist, window, poly, secs_left)
+        elif name == "coinflip":
+            pick = fn(hist, rng)
+        else:
+            pick = fn(hist)
         if pick is None:
             continue
         if poly and poly.get(pick):

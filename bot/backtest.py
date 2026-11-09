@@ -21,7 +21,8 @@ def run(candles, days_test, rng_seed=7):
     W = config.WINDOW_SECONDS
     start = ((first_t + LOOKBACK_MIN * 60) // W + 1) * W
     test_from = last_t - days_test * 86400
-    strats = strategies.all_strategies()
+    strats = {k: v for k, v in strategies.all_strategies().items()
+              if not getattr(v, "needs_market", False)}  # no historical Polymarket prices
     rng = random.Random(rng_seed)
     results = {name: [] for name in strats}
 
