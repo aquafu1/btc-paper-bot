@@ -1,0 +1,4 @@
+window_start,window_start_utc,strategy,pick,price,price_source,entered_at,status,outcome,won,pnl,btc_open,btc_close
+1794245400,2026-11-09 17:30,coinflip,Down,0.780,polymarket_ask,+452s,open,,,,,
+1794245400,2026-11-09 17:30,always_up,Up,0.230,polymarket_ask,+452s,open,,,,,
+1794245400,2026-11-09 17:30,momentum_5m_0.00pct,Up,0.230,polymarket_ask,+452s,open,,,,,
