@@ -1,4 +1,11 @@
 window_start,window_start_utc,strategy,pick,price,price_source,entered_at,status,outcome,won,pnl,btc_open,btc_close
-1794245400,2026-11-09 17:30,coinflip,Down,0.780,polymarket_ask,+452s,open,,,,,
-1794245400,2026-11-09 17:30,always_up,Up,0.230,polymarket_ask,+452s,open,,,,,
-1794245400,2026-11-09 17:30,momentum_5m_0.00pct,Up,0.230,polymarket_ask,+452s,open,,,,,
+1794245400,2026-11-09 17:30,coinflip,Down,0.780,polymarket_ask,+452s,settled,Down,True,2.6705,74759.36,74549.99
+1794245400,2026-11-09 17:30,always_up,Up,0.230,polymarket_ask,+452s,settled,Down,False,-10.1500,74759.36,74549.99
+1794245400,2026-11-09 17:30,momentum_5m_0.00pct,Up,0.230,polymarket_ask,+452s,settled,Down,False,-10.1500,74759.36,74549.99
+1794246300,2026-11-09 17:45,coinflip,Down,0.060,polymarket_ask,+343s,open,,,,,
+1794246300,2026-11-09 17:45,always_up,Up,0.950,polymarket_ask,+343s,open,,,,,
+1794246300,2026-11-09 17:45,momentum_15m_0.10pct,Down,0.060,polymarket_ask,+343s,open,,,,,
+1794246300,2026-11-09 17:45,reversal_15m_0.10pct,Up,0.950,polymarket_ask,+343s,open,,,,,
+1794246300,2026-11-09 17:45,momentum_60m_0.30pct,Down,0.060,polymarket_ask,+343s,open,,,,,
+1794246300,2026-11-09 17:45,reversal_60m_0.30pct,Up,0.950,polymarket_ask,+343s,open,,,,,
+1794246300,2026-11-09 17:45,momentum_5m_0.00pct,Up,0.950,polymarket_ask,+343s,open,,,,,
