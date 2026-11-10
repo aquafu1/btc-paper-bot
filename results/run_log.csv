@@ -4,3 +4,4 @@ run_at_utc,note
 2026-11-10T00:51:46+00:00,"settled 7; entered 9 trades (real Polymarket odds, 406s into window)"
 2026-11-10T07:54:51+00:00,"settled 9; entered 9 trades (real Polymarket odds, 591s into window)"
 2026-11-10T15:57:36+00:00,settled 9; skipped: run was 12 min late into window
+2026-11-10T21:05:55+00:00,"settled 0, waiting 0; skipped 3:00 PM window: 355s late"
