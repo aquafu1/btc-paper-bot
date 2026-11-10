@@ -1,4 +1,5 @@
-"""Backtest every strategy on recent real BTC data, assuming a fixed entry price.
+"""Backtest every strategy on recent real BTC data, assuming a fixed entry price and
+Polymarket's real fee formula.
 
 Usage: python -m bot.backtest [days]      (default 21)
 Writes results/backtest_report.md
@@ -39,9 +40,9 @@ def run(candles, days_test, rng_seed=7):
                     if pick is None:
                         continue
                     won = pick == outcome
-                    p = config.SIM_ENTRY_PRICE
-                    results[name].append({"t": ws, "won": won, "price": p,
-                                          "pnl": scoring.trade_pnl(won, p), "test": ws >= test_from})
+                    shares, _ = scoring.buy_at(config.SIM_ENTRY_PRICE)
+                    results[name].append({"t": ws, "won": won, "payout": shares,
+                                          "pnl": scoring.pnl(won, shares), "test": ws >= test_from})
         ws += W
 
     out = {}
@@ -62,9 +63,9 @@ def report(results, days, days_test, first_t, last_t):
         "# Backtest report (FAKE money)",
         "",
         f"Data: Coinbase BTC-USD 1-min candles, {d(first_t)} to {d(last_t)} ({days} days).",
-        f"Assumed entry price {config.SIM_ENTRY_PRICE:.2f}, fee {config.FEE_RATE*100:.1f}% of stake, "
-        f"${config.STAKE:.0f} per trade. Break-even win rate = "
-        f"{scoring.breakeven_win_rate(config.SIM_ENTRY_PRICE)*100:.1f}%.",
+        f"Assumed entry price {config.SIM_ENTRY_PRICE:.2f}, Polymarket's crypto taker fee "
+        f"({config.FEE_RATE} x p x (1-p) per share), ${config.STAKE:.0f} per trade. Break-even win rate = "
+        f"{scoring.breakeven_at(config.SIM_ENTRY_PRICE)*100:.1f}%.",
         "",
         f"**Train** = first {days - days_test} days (where you'd pick a strategy). "
         f"**Test** = last {days_test} days (did it still work on data it wasn't picked on?).",
@@ -80,7 +81,7 @@ def report(results, days, days_test, first_t, last_t):
         lines.append(
             f"| {name} | {a['trades']} | {a['win_rate']*100:.1f} | ${a['pnl']:+.0f} | "
             f"${tr.get('pnl', 0):+.0f} | ${te.get('pnl', 0):+.0f} | "
-            f"{te.get('win_rate', 0)*100:.1f} | {scoring.verdict(a)} |"
+            f"{te.get('win_rate', 0)*100:.1f} | {scoring.verdict(a, 100)} |"
         )
     lines += [
         "",

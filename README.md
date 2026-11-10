@@ -1,36 +1,38 @@
 # btc-paper-bot
 
 A **paper-trading** bot (fake money, no wallet, no keys) for Polymarket's 15-minute
-"Bitcoin Up or Down" markets. It answers one question: **would any of these strategies
-actually make money?**
+"Up or Down" crypto markets (BTC, ETH, SOL, XRP). It answers one question:
+**would any of these strategies actually make money?**
 
 ## Where to look
 
 | File | What it is |
 |---|---|
-| [`results/LEADERBOARD.md`](results/LEADERBOARD.md) | Live paper results per strategy (updated every 15 min) |
+| [`results/LEADERBOARD.md`](results/LEADERBOARD.md) | Live paper results per strategy (updated every few minutes) |
 | [`results/backtest_report.md`](results/backtest_report.md) | How each strategy did on the last ~3 weeks of real BTC data |
 | [`results/trades.csv`](results/trades.csv) | Every fake trade |
-| [`results/run_log.csv`](results/run_log.csv) | What the bot did on each run (good for spotting errors) |
+| [`results/run_log.csv`](results/run_log.csv) | What the bot did on each wake (good for spotting errors) |
 
 ## How it works
 
-- **Every ~15 min** (GitHub Actions, free on public repos) the bot:
-  1. settles finished trades using Coinbase BTC-USD prices (Up = BTC closed the 15 min at or above where it opened)
-  2. looks up the real Polymarket odds for the new window and has each strategy pick Up / Down / skip
-  3. logs a fake $10 trade per pick at the real Polymarket price (falls back to an assumed 51c if the market can't be found)
-- **Backtest** runs whenever `bot/strategies.py` changes, or manually from the Actions tab.
+- A GitHub Actions job runs a **loop** for ~5.5 hours, then starts the next job itself
+  (GitHub's built-in every-15-min timer only fired ~3 times a day, so it isn't used).
+- **~20s after each 15-min window opens**, for each coin, each strategy picks Up / Down / skip.
+  Each pick is a fake $10 buy, priced by walking the **real Polymarket order book**,
+  minus Polymarket's **real taker fee** (`0.07 x shares x p x (1-p)`, read from each market).
+- **~150s after the window opens** it settles the window that just ended using
+  **Polymarket's official result** (Chainlink price), not an outside price feed.
+- **Backtest** runs whenever the strategy or scoring code changes, or manually from the Actions tab.
 
 ## Is it profitable? How to tell
 
-- A $1 share bought at 51c needs to win **more than ~51.8%** of the time (after the estimated 1.5% fee) just to break even.
-- Ignore any strategy with under **~300 trades** — short streaks are mostly luck.
+- A strategy makes money only if **Win % beats Break-even %** (break-even is about 52.8%
+  at 51c with fees).
+- Ignore any strategy with under **200 trades**.
 - It must beat **`coinflip`**, the control group.
-- The **Verdict** column flags win rates 2+ standard errors above break-even. Even then, let it run another week.
-- Backtest results assume a fixed 51c price, which is too generous. Trust the live leaderboard more.
+- The **Verdict** column flags strategies whose average profit is 2+ standard errors above zero.
+  Even then, let it run longer before using real money.
 
-## Notes
+## Stopping it
 
-- Polymarket resolves these markets with Chainlink's BTC price; this bot uses Coinbase, so a few near-flat windows may settle differently.
-- Fee (`FEE_RATE`) and stake are in `bot/config.py`.
-- Nothing here places real trades.
+Actions tab -> "Paper trade (loop)" -> "..." -> **Disable workflow**. Nothing here places real trades.

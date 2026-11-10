@@ -10,13 +10,14 @@ on:
     paths:
       - "bot/strategies.py"
       - "bot/backtest.py"
+      - "bot/scoring.py"
 
 permissions:
   contents: write
 
 concurrency:
-  group: paper-trade
-  cancel-in-progress: false
+  group: backtest
+  cancel-in-progress: true
 
 jobs:
   backtest:
@@ -36,5 +37,5 @@ jobs:
           git add results/backtest_report.md
           git diff --cached --quiet && exit 0
           git commit -m "backtest report"
-          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
+          for i in 1 2 3 4; do git pull --rebase && git push && exit 0; git rebase --abort 2>/dev/null; sleep $((i*5)); done
           exit 1

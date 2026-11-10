@@ -1,13 +1,17 @@
-name: Paper trade (every 15 min)
+name: Paper trade (loop)
 
+# One job runs a ~5.5-hour loop that trades every 15-min window on time, then starts the
+# next job itself. GitHub's own timer is unreliable for every-15-min schedules (it fired
+# only ~3 times a day), so the hourly schedule below is just a backup that restarts the
+# chain if it ever breaks. Extra triggers just wait in line (one runs at a time).
 on:
   schedule:
-    # 1 min after each 15-min window opens. GitHub can run these a few minutes late.
-    - cron: "1,16,31,46 * * * *"
+    - cron: "7 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: paper-trade
@@ -16,20 +20,23 @@ concurrency:
 jobs:
   trade:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Run paper trader
-        run: python -m bot.live
-      - name: Save results
+      - name: Paper trade loop
+        id: loop
         run: |
           git config user.name "paper-bot"
           git config user.email "paper-bot@users.noreply.github.com"
-          git add results/
-          git diff --cached --quiet && exit 0
-          git commit -m "paper trades $(date -u +%Y-%m-%dT%H:%MZ)"
-          for i in 1 2 3; do git pull --rebase && git push && exit 0; sleep 5; done
-          exit 1
+          python -m bot.live --loop
+      - name: Start the next loop
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # if the loop crashed, wait 5 min so a bug can't restart it over and over
+          if [ "${{ steps.loop.outcome }}" != "success" ]; then sleep 300; fi
+          gh workflow run paper-trade.yml --ref main -R "${{ github.repository }}"

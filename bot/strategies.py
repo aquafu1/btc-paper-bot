@@ -57,8 +57,9 @@ def trend_filter(candles):
 
 
 def model_prob_up(hist, window, secs_left):
-    """Chance BTC finishes the window at/above its open, from current move + recent volatility.
-    hist: candles before the window. window: candles inside the window so far."""
+    """Chance the coin finishes the window at/above its open, from the move so far + recent
+    volatility. hist: candles before the window. window: candles inside the window so far
+    (the newest may still be in progress)."""
     import math
     closes = [c["close"] for c in hist[-61:]]
     rets = [math.log(b / a) for a, b in zip(closes, closes[1:]) if a > 0]
@@ -76,9 +77,12 @@ def model_prob_up(hist, window, secs_left):
     return 0.5 * (1 + math.erf(z / math.sqrt(2)))
 
 
-def make_value(min_ev, fee_rate):
+def make_value(min_ev):
     """Only bet when Polymarket's price looks wrong vs. the model.
-    Expected return per $1 staked = p/price - 1 - fee. Bet the side with the best one if > min_ev."""
+    Expected return per $1 = P(win) * shares-per-$1-after-fee - 1. Bet the best side if > min_ev.
+    prices: {"Up": best ask, "Down": best ask, "fee_rate": r, "fee_exp": e}"""
+    from .scoring import buy_at
+
     def strat(hist, window, prices, secs_left):
         p_up = model_prob_up(hist, window, secs_left)
         if p_up is None or not prices:
@@ -88,11 +92,12 @@ def make_value(min_ev, fee_rate):
             price = prices.get(side)
             if not price or not (0.03 <= price <= 0.97):
                 continue
-            ev = p / price - 1 - fee_rate
+            shares, _ = buy_at(price, 1.0, prices.get("fee_rate", 0.07), prices.get("fee_exp", 1))
+            ev = p * shares - 1
             if ev > best_ev:
                 best, best_ev = side, ev
         return best
-    strat.__name__ = f"value_ev{int(min_ev*100)}"
+    strat.__name__ = f"value_ev{int(round(min_ev*100))}"
     strat.needs_market = True
     return strat
 
@@ -103,9 +108,8 @@ def all_strategies():
         for th in (0.0, 0.001, 0.003):
             for s in (make_momentum(m, th), make_reversal(m, th)):
                 strats[s.__name__] = s
-    from .config import FEE_RATE
     for ev in (0.05, 0.10, 0.20):
-        s = make_value(ev, FEE_RATE)
+        s = make_value(ev)
         strats[s.__name__] = s
     return strats
 
