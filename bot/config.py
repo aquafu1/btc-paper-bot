@@ -24,8 +24,8 @@ SIM_ENTRY_PRICE = 0.51
 # so the bot buys right after the window opens, while the price is still near 50c.
 ENTRY_DELAY = 20                  # seconds after window start to place the paper trades
 MAX_ENTRY_DELAY = 120             # later than this, skip the window (price already moved)
-SETTLE_DELAY = 150                # seconds after window start: second check, to settle the
-                                  # window that just ended (Polymarket resolves ~80s after the end)
+SETTLE_DELAY = 300                 # seconds after window start: second check, to settle the
+                                  # window that just ended (Polymarket marks results "resolved" ~2.5-3 min after the end)
 MIN_SHARES = 5                    # Polymarket's minimum order size
 
 # The GitHub job runs a loop for this long, then starts a fresh job (6h max per job).

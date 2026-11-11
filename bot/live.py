@@ -4,7 +4,7 @@ On GitHub Actions this runs as a loop:  python -m bot.live --loop
 Every 15-min window it wakes twice:
   +20s   buys fake $10 positions for each strategy's pick, on BTC/ETH/SOL/XRP, at the price
          the real Polymarket order book would fill (fees included)
-  +150s  settles the window that just ended, using Polymarket's official result
+  +300s  settles the window that just ended, using Polymarket's official result
 After ~5.5 hours the loop exits and the workflow starts a fresh one (GitHub's 6h job limit).
 Results are committed to results/ after every wake.
 

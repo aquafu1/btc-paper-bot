@@ -20,7 +20,7 @@ A **paper-trading** bot (fake money, no wallet, no keys) for Polymarket's 15-min
 - **~20s after each 15-min window opens**, for each coin, each strategy picks Up / Down / skip.
   Each pick is a fake $10 buy, priced by walking the **real Polymarket order book**,
   minus Polymarket's **real taker fee** (`0.07 x shares x p x (1-p)`, read from each market).
-- **~150s after the window opens** it settles the window that just ended using
+- **~5 min after the window opens** it settles the window that just ended using
   **Polymarket's official result** (Chainlink price), not an outside price feed.
 - **Backtest** runs whenever the strategy or scoring code changes, or manually from the Actions tab.
 
