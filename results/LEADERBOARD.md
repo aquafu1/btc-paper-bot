@@ -1,31 +1,31 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Tue Nov 10, 10:32 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 30 windows, 726 settled trades, 53 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Tue Nov 10, 10:45 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 31 windows, 758 settled trades, 55 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
 | Strategy | Trades | Win % | Break-even % | P&L | ROI | Bankroll | z | Hits 200 | Verdict |
 |---|---|---|---|---|---|---|---|---|---|
-| reversal_60m_0.30pct | 46 | 65.2 | 48.9 | $+151.65 | +33.0% | $1151.65 | +2.1 | Wed 9:45 PM | too few trades (46/200) |
-| reversal_15m_0.10pct | 69 | 53.6 | 49.1 | $+65.66 | +9.5% | $1065.66 | +0.7 | Wed 11:45 AM | too few trades (69/200) |
-| coinflip | 112 | 55.4 | 51.9 | $+40.73 | +3.6% | $1040.73 | +0.4 | Wed 3:45 AM | too few trades (112/200) |
-| momentum_5m_0.00pct | 112 | 55.4 | 51.9 | $+37.26 | +3.3% | $1037.26 | +0.4 | Wed 3:45 AM | too few trades (112/200) |
-| value_ev10 | 47 | 44.7 | 39.4 | $+26.62 | +5.7% | $1026.62 | +0.3 | Wed 9:15 PM | too few trades (47/200) |
-| value_ev5 | 58 | 41.4 | 40.2 | $-18.24 | -3.1% | $981.76 | -0.2 | Wed 3:30 PM | too few trades (58/200) |
-| value_ev20 | 22 | 31.8 | 35.8 | $-36.58 | -16.6% | $963.42 | -0.6 | Fri 7:00 AM | too few trades (22/200) |
-| momentum_15m_0.10pct | 69 | 46.4 | 52.1 | $-77.12 | -11.2% | $922.88 | -0.9 | Wed 11:45 AM | too few trades (69/200) |
-| trend_filter | 33 | 39.4 | 53.9 | $-96.78 | -29.3% | $903.22 | -1.8 | Thu 9:45 AM | too few trades (33/200) |
-| momentum_60m_0.30pct | 46 | 34.8 | 53.1 | $-162.95 | -35.4% | $837.05 | -2.6 | Wed 9:45 PM | too few trades (46/200) |
-| always_up | 112 | 38.4 | 49.1 | $-273.69 | -24.4% | $726.31 | -2.6 | Wed 3:45 AM | too few trades (112/200) |
+| reversal_60m_0.30pct | 48 | 62.5 | 47.3 | $+131.65 | +27.4% | $1131.65 | +1.8 | Wed 9:30 PM | too few trades (48/200) |
+| reversal_15m_0.10pct | 71 | 52.1 | 48.0 | $+45.66 | +6.4% | $1045.66 | +0.5 | Wed 11:45 AM | too few trades (71/200) |
+| momentum_5m_0.00pct | 116 | 56.0 | 52.5 | $+37.23 | +3.2% | $1037.23 | +0.4 | Wed 3:45 AM | too few trades (116/200) |
+| value_ev10 | 51 | 43.1 | 38.5 | $+16.35 | +3.2% | $1016.35 | +0.2 | Wed 7:45 PM | too few trades (51/200) |
+| coinflip | 116 | 54.3 | 51.7 | $+12.92 | +1.1% | $1012.92 | +0.1 | Wed 3:45 AM | too few trades (116/200) |
+| value_ev20 | 24 | 33.3 | 35.7 | $-26.85 | -11.2% | $973.15 | -0.4 | Fri 3:45 AM | too few trades (24/200) |
+| value_ev5 | 62 | 40.3 | 39.4 | $-28.51 | -4.6% | $971.49 | -0.3 | Wed 2:45 PM | too few trades (62/200) |
+| momentum_15m_0.10pct | 71 | 47.9 | 52.6 | $-71.14 | -10.0% | $928.86 | -0.9 | Wed 11:45 AM | too few trades (71/200) |
+| trend_filter | 35 | 42.9 | 54.8 | $-90.80 | -25.9% | $909.20 | -1.7 | Thu 8:45 AM | too few trades (35/200) |
+| momentum_60m_0.30pct | 48 | 37.5 | 53.7 | $-156.97 | -32.7% | $843.03 | -2.5 | Wed 9:30 PM | too few trades (48/200) |
+| always_up | 116 | 37.9 | 48.1 | $-283.97 | -24.5% | $716.03 | -2.6 | Wed 3:45 AM | too few trades (116/200) |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 162 | 48.8 | 49.5 | $-13.45 |
-| ETH | 169 | 43.2 | 47.9 | $-245.96 |
-| SOL | 197 | 49.2 | 48.1 | $+18.60 |
-| XRP | 198 | 49.5 | 48.4 | $-102.63 |
+| BTC | 167 | 47.9 | 48.9 | $-49.47 |
+| ETH | 175 | 44.0 | 47.6 | $-187.06 |
+| SOL | 208 | 48.6 | 47.7 | $-36.20 |
+| XRP | 208 | 49.5 | 47.6 | $-141.72 |
 
 **How to read this:** a strategy makes money only if **Win % beats Break-even %**. Ignore anything under 200 trades. It should also clearly beat `coinflip` (random picks). **z** = how many standard errors the average profit is above zero; "real edge?" needs z of 2 or more, and even then let it keep running before trusting it. The 4 coins usually move together, so a strategy's trades in the same window aren't fully independent.
 
