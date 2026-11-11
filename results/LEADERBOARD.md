@@ -1,31 +1,31 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Tue Nov 10, 6:17 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 13 windows, 301 settled trades, 49 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Tue Nov 10, 6:30 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 14 windows, 328 settled trades, 44 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
 | Strategy | Trades | Win % | Break-even % | P&L | ROI | Bankroll | z | Hits 200 | Verdict |
 |---|---|---|---|---|---|---|---|---|---|
-| coinflip | 44 | 61.4 | 52.6 | $+47.94 | +10.9% | $1047.94 | +0.8 | Wed 3:45 AM | too few trades (44/200) |
-| reversal_60m_0.30pct | 21 | 52.4 | 48.1 | $+6.09 | +2.9% | $1006.09 | +0.1 | Wed 5:30 PM | too few trades (21/200) |
-| reversal_15m_0.10pct | 26 | 53.8 | 50.8 | $-0.47 | -0.2% | $999.53 | -0.0 | Wed 12:30 PM | too few trades (26/200) |
-| value_ev10 | 20 | 40.0 | 38.4 | $-17.99 | -9.0% | $982.01 | -0.3 | Wed 6:45 PM | too few trades (20/200) |
-| momentum_15m_0.10pct | 26 | 46.2 | 48.9 | $-32.24 | -12.4% | $967.76 | -0.6 | Wed 12:30 PM | too few trades (26/200) |
-| momentum_60m_0.30pct | 21 | 47.6 | 54.0 | $-33.54 | -16.0% | $966.46 | -0.8 | Wed 5:30 PM | too few trades (21/200) |
-| value_ev20 | 10 | 20.0 | 34.4 | $-48.69 | -48.7% | $951.31 | -1.4 | Thu 10:15 PM | too few trades (10/200) |
-| momentum_5m_0.00pct | 44 | 50.0 | 51.8 | $-49.72 | -11.3% | $950.28 | -0.8 | Wed 3:45 AM | too few trades (44/200) |
-| trend_filter | 19 | 42.1 | 55.2 | $-57.22 | -30.1% | $942.78 | -1.5 | Wed 8:15 PM | too few trades (19/200) |
-| value_ev5 | 26 | 30.8 | 39.6 | $-77.99 | -30.0% | $922.01 | -1.4 | Wed 12:30 PM | too few trades (26/200) |
-| always_up | 44 | 43.2 | 49.8 | $-92.38 | -21.0% | $907.62 | -1.5 | Wed 3:45 AM | too few trades (44/200) |
+| coinflip | 48 | 60.4 | 52.5 | $+37.69 | +7.9% | $1037.69 | +0.6 | Wed 3:45 AM | too few trades (48/200) |
+| reversal_60m_0.30pct | 22 | 50.0 | 48.5 | $-3.91 | -1.8% | $996.09 | -0.1 | Wed 6:45 PM | too few trades (22/200) |
+| reversal_15m_0.10pct | 27 | 51.9 | 49.6 | $-10.47 | -3.9% | $989.53 | -0.2 | Wed 1:30 PM | too few trades (27/200) |
+| momentum_60m_0.30pct | 22 | 50.0 | 53.8 | $-23.01 | -10.5% | $976.99 | -0.5 | Wed 6:45 PM | too few trades (22/200) |
+| momentum_15m_0.10pct | 27 | 48.1 | 49.6 | $-28.55 | -10.6% | $971.45 | -0.6 | Wed 1:30 PM | too few trades (27/200) |
+| value_ev10 | 24 | 37.5 | 38.3 | $-37.46 | -15.6% | $962.54 | -0.7 | Wed 4:15 PM | too few trades (24/200) |
+| trend_filter | 20 | 40.0 | 53.7 | $-67.22 | -33.6% | $932.78 | -1.8 | Wed 9:15 PM | too few trades (20/200) |
+| value_ev20 | 12 | 16.7 | 34.3 | $-68.69 | -57.2% | $931.31 | -2.0 | Thu 5:15 PM | too few trades (12/200) |
+| momentum_5m_0.00pct | 48 | 47.9 | 51.3 | $-76.03 | -15.8% | $923.97 | -1.2 | Wed 3:45 AM | too few trades (48/200) |
+| value_ev5 | 30 | 30.0 | 39.4 | $-97.46 | -32.5% | $902.54 | -1.7 | Wed 11:15 AM | too few trades (30/200) |
+| always_up | 48 | 41.7 | 48.5 | $-111.85 | -23.3% | $888.15 | -1.7 | Wed 3:45 AM | too few trades (48/200) |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 63 | 46.0 | 47.7 | $-62.72 |
-| ETH | 72 | 40.3 | 46.7 | $-184.20 |
-| SOL | 84 | 47.6 | 49.6 | $-117.20 |
-| XRP | 82 | 52.4 | 48.4 | $+7.90 |
+| BTC | 68 | 44.1 | 47.2 | $-97.49 |
+| ETH | 79 | 38.0 | 45.8 | $-239.69 |
+| SOL | 91 | 48.4 | 49.8 | $-105.06 |
+| XRP | 90 | 50.0 | 47.1 | $-44.71 |
 
 **How to read this:** a strategy makes money only if **Win % beats Break-even %**. Ignore anything under 200 trades. It should also clearly beat `coinflip` (random picks). **z** = how many standard errors the average profit is above zero; "real edge?" needs z of 2 or more, and even then let it keep running before trusting it. The 4 coins usually move together, so a strategy's trades in the same window aren't fully independent.
 
