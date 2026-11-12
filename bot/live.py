@@ -292,6 +292,17 @@ def git(*args):
     return subprocess.run(["git", *args], capture_output=True, text=True)
 
 
+def git_sync():
+    """Make the local results match GitHub exactly. The repo on GitHub is the only record:
+    a queued run can start hours after it was created, holding an old snapshot."""
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    git("rebase", "--abort")
+    git("fetch", "-q", "origin", "main")
+    r = git("reset", "-q", "--hard", "origin/main")
+    print("synced to origin/main" if r.returncode == 0 else f"WARNING: sync failed: {r.stderr}", flush=True)
+
+
 def git_save():
     """Commit and push results (only on GitHub Actions)."""
     if not os.environ.get("GITHUB_ACTIONS"):
@@ -301,13 +312,17 @@ def git_save():
         return
     git("commit", "-q", "-m", f"paper trades {datetime.now(timezone.utc):%Y-%m-%dT%H:%MZ}")
     for i in range(4):
-        pull = git("pull", "-q", "--rebase")
+        pull = git("pull", "-q", "--rebase", "origin", "main")
         if pull.returncode != 0:
             git("rebase", "--abort")
-        if pull.returncode == 0 and git("push", "-q").returncode == 0:
+        if pull.returncode == 0 and git("push", "-q", "origin", "HEAD:main").returncode == 0:
             return
         time.sleep(5 * (i + 1))
-    print("WARNING: push failed, will retry next wake", flush=True)
+    # Never keep building on a copy GitHub won't accept: drop this wake's changes and
+    # start the next wake from GitHub's copy (this wake's new trades are simply not recorded).
+    print("WARNING: push failed 4 times; resetting to GitHub's copy", flush=True)
+    log_run("push failed; reset to GitHub copy", int(time.time()))
+    git_sync()
 
 
 def next_wake(now):
@@ -320,9 +335,11 @@ def next_wake(now):
 
 def loop():
     deadline = time.time() + config.LOOP_SECONDS
+    git_sync()
     migrate_v1()
     while True:
         try:
+            git_sync()
             run_once()
             git_save()
         except Exception as e:  # noqa: BLE001  never let one bad wake kill the loop

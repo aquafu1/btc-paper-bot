@@ -1,9 +1,12 @@
 name: Paper trade (loop)
 
-# One job runs a ~5.5-hour loop that trades every 15-min window on time, then starts the
-# next job itself. GitHub's own timer is unreliable for every-15-min schedules (it fired
-# only ~3 times a day), so the hourly schedule below is just a backup that restarts the
-# chain if it ever breaks. Extra triggers just wait in line (one runs at a time).
+# One job runs a ~5.5-hour loop that trades every 15-min window on time.
+# At the START of each job it queues the next one, so a successor is always waiting in line
+# (one runs at a time). If GitHub's runner dies mid-loop, the waiting job starts right away
+# instead of the chain breaking. The loop syncs to GitHub's copy of results/ before every
+# wake, so a job that waited in line for hours never works from an old snapshot.
+# GitHub's own timer is unreliable for every-15-min schedules, so the hourly schedule is only
+# a backup. Extra queued runs just replace each other.
 on:
   schedule:
     - cron: "7 * * * *"
@@ -23,20 +26,21 @@ jobs:
     timeout-minutes: 355
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Queue the next loop
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run paper-trade.yml --ref main -R "${{ github.repository }}"
       - name: Paper trade loop
-        id: loop
         run: |
           git config user.name "paper-bot"
           git config user.email "paper-bot@users.noreply.github.com"
           python -m bot.live --loop
-      - name: Start the next loop
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          # if the loop crashed, wait 5 min so a bug can't restart it over and over
-          if [ "${{ steps.loop.outcome }}" != "success" ]; then sleep 300; fi
-          gh workflow run paper-trade.yml --ref main -R "${{ github.repository }}"
+      - name: Slow down after a crash
+        if: failure()
+        # keeps the slot for 10 min so a code bug can't restart the loop over and over
+        run: sleep 600
