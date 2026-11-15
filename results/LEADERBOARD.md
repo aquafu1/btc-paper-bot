@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Sun Nov 15, 12:05 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 400 windows, 10967 settled trades, 35 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Sun Nov 15, 12:15 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 401 windows, 10970 settled trades, 64 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -13,16 +13,16 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | trend_filter | 622 | 50.0 | 50.6 | $-314.40 | -5.1% | $685.60 | -1.3 | done | can't tell from luck |
 | momentum_15m_0.10pct | 1102 | 49.5 | 49.8 | $-449.98 | -4.1% | $550.02 | -1.3 | done | can't tell from luck |
 | reversal_15m_0.10pct | 1102 | 50.5 | 52.1 | $-733.79 | -6.7% | $266.21 | -2.3 | done | losing for real |
-| coinflip | 1595 | 50.1 | 50.9 | $-790.53 | -5.0% | $209.47 | -2.0 | done | losing for real |
+| coinflip | 1596 | 50.1 | 50.9 | $-782.28 | -4.9% | $217.72 | -2.0 | done | can't tell from luck |
 | reversal_60m_0.30pct | 932 | 49.2 | 52.1 | $-854.41 | -9.2% | $145.59 | -2.9 | done | losing for real |
-| momentum_5m_0.00pct | 1595 | 49.8 | 51.6 | $-1073.03 | -6.7% | $-73.03 | -2.8 | done | losing for real |
-| always_up | 1595 | 46.0 | 50.8 | $-2027.06 | -12.7% | $-1027.06 | -5.2 | done | losing for real |
+| momentum_5m_0.00pct | 1596 | 49.9 | 51.6 | $-1064.78 | -6.7% | $-64.78 | -2.8 | done | losing for real |
+| always_up | 1596 | 46.0 | 50.8 | $-2037.06 | -12.8% | $-1037.06 | -5.2 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 2473 | 47.8 | 49.5 | $-1698.13 |
+| BTC | 2476 | 47.8 | 49.5 | $-1691.63 |
 | ETH | 2757 | 48.0 | 49.0 | $-1670.93 |
 | SOL | 2838 | 48.0 | 49.5 | $-2115.67 |
 | XRP | 2899 | 48.9 | 49.3 | $-1447.53 |
