@@ -1,31 +1,31 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Mon Nov 16, 1:20 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 501 windows, 13789 settled trades, 52 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Mon Nov 16, 1:30 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 502 windows, 13819 settled trades, 65 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
 | Strategy | Trades | Win % | Break-even % | P&L | ROI | Bankroll | z | Hits 200 | Verdict |
 |---|---|---|---|---|---|---|---|---|---|
-| value_ev20 | 255 | 33.7 | 35.5 | $-229.21 | -9.0% | $770.79 | -1.1 | done | can't tell from luck |
-| momentum_60m_0.30pct | 1172 | 51.0 | 49.9 | $-253.08 | -2.2% | $746.92 | -0.7 | done | can't tell from luck |
-| momentum_15m_0.10pct | 1393 | 50.0 | 49.7 | $-523.33 | -3.8% | $476.67 | -1.4 | done | can't tell from luck |
-| value_ev10 | 647 | 37.9 | 39.8 | $-550.56 | -8.5% | $449.44 | -1.8 | done | can't tell from luck |
-| trend_filter | 810 | 49.6 | 50.8 | $-557.73 | -6.9% | $442.27 | -2.0 | done | losing for real |
-| value_ev5 | 959 | 40.0 | 41.6 | $-713.93 | -7.4% | $286.07 | -2.0 | done | can't tell from luck |
-| reversal_15m_0.10pct | 1393 | 50.0 | 51.5 | $-1013.77 | -7.3% | $-13.77 | -2.8 | done | losing for real |
-| coinflip | 1996 | 50.1 | 50.7 | $-1054.61 | -5.3% | $-54.61 | -2.4 | done | losing for real |
-| reversal_60m_0.30pct | 1172 | 49.0 | 51.3 | $-1063.45 | -9.1% | $-63.45 | -3.2 | done | losing for real |
-| momentum_5m_0.00pct | 1996 | 49.7 | 51.6 | $-1493.51 | -7.5% | $-493.51 | -3.5 | done | losing for real |
-| always_up | 1996 | 46.3 | 50.2 | $-2377.51 | -11.9% | $-1377.51 | -5.4 | done | losing for real |
+| value_ev20 | 256 | 34.0 | 35.5 | $-211.93 | -8.3% | $788.07 | -1.0 | done | can't tell from luck |
+| momentum_60m_0.30pct | 1173 | 51.0 | 49.9 | $-263.08 | -2.2% | $736.92 | -0.8 | done | can't tell from luck |
+| value_ev10 | 648 | 38.0 | 39.8 | $-533.29 | -8.2% | $466.71 | -1.7 | done | can't tell from luck |
+| momentum_15m_0.10pct | 1397 | 49.8 | 49.8 | $-563.33 | -4.0% | $436.67 | -1.5 | done | can't tell from luck |
+| trend_filter | 813 | 49.4 | 50.8 | $-587.73 | -7.2% | $412.27 | -2.1 | done | losing for real |
+| value_ev5 | 962 | 40.0 | 41.6 | $-716.66 | -7.4% | $283.34 | -2.0 | done | can't tell from luck |
+| reversal_15m_0.10pct | 1397 | 50.2 | 51.5 | $-944.79 | -6.8% | $55.21 | -2.6 | done | losing for real |
+| coinflip | 2000 | 50.1 | 50.7 | $-1016.33 | -5.1% | $-16.33 | -2.3 | done | losing for real |
+| reversal_60m_0.30pct | 1173 | 49.0 | 51.3 | $-1042.75 | -8.9% | $-42.75 | -3.1 | done | losing for real |
+| momentum_5m_0.00pct | 2000 | 49.6 | 51.6 | $-1506.24 | -7.5% | $-506.24 | -3.5 | done | losing for real |
+| always_up | 2000 | 46.2 | 50.2 | $-2417.51 | -12.1% | $-1417.51 | -5.5 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 3110 | 47.4 | 49.2 | $-2574.42 |
-| ETH | 3449 | 48.0 | 48.7 | $-2311.43 |
-| SOL | 3598 | 47.7 | 49.1 | $-2740.69 |
-| XRP | 3632 | 48.3 | 48.8 | $-2204.15 |
+| BTC | 3118 | 47.3 | 49.3 | $-2593.02 |
+| ETH | 3456 | 48.0 | 48.7 | $-2331.08 |
+| SOL | 3606 | 47.7 | 49.1 | $-2657.06 |
+| XRP | 3639 | 48.2 | 48.8 | $-2222.48 |
 
 **How to read this:** a strategy makes money only if **Win % beats Break-even %**. Ignore anything under 200 trades. It should also clearly beat `coinflip` (random picks). **z** = how many standard errors the average profit is above zero; "real edge?" needs z of 2 or more, and even then let it keep running before trusting it. The 4 coins usually move together, so a strategy's trades in the same window aren't fully independent.
 
