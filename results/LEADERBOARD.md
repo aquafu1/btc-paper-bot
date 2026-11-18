@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Tue Nov 17, 5:50 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 663 windows, 18355 settled trades, 21 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Tue Nov 17, 6:00 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 664 windows, 18355 settled trades, 47 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
