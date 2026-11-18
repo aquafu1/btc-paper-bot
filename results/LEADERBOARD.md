@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Tue Nov 17, 6:05 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 664 windows, 18373 settled trades, 29 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Tue Nov 17, 6:15 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 665 windows, 18376 settled trades, 58 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -12,17 +12,17 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | trend_filter | 1065 | 50.4 | 51.0 | $-575.94 | -5.4% | $424.06 | -1.8 | done | can't tell from luck |
 | value_ev10 | 844 | 38.2 | 39.5 | $-631.06 | -7.5% | $368.94 | -1.8 | done | can't tell from luck |
 | value_ev5 | 1276 | 40.6 | 41.4 | $-746.42 | -5.8% | $253.58 | -1.8 | done | can't tell from luck |
-| coinflip | 2651 | 50.2 | 50.4 | $-1171.36 | -4.4% | $-171.36 | -2.3 | done | losing for real |
+| coinflip | 2652 | 50.2 | 50.4 | $-1181.36 | -4.5% | $-181.36 | -2.3 | done | losing for real |
 | reversal_60m_0.30pct | 1561 | 49.5 | 51.3 | $-1255.73 | -8.0% | $-255.73 | -3.3 | done | losing for real |
 | momentum_15m_0.10pct | 1885 | 48.5 | 50.0 | $-1306.96 | -6.9% | $-306.96 | -3.0 | done | losing for real |
-| momentum_5m_0.00pct | 2651 | 50.8 | 51.8 | $-1447.89 | -5.5% | $-447.89 | -2.9 | done | losing for real |
-| always_up | 2651 | 47.6 | 49.7 | $-2170.01 | -8.2% | $-1170.01 | -4.2 | done | losing for real |
+| momentum_5m_0.00pct | 2652 | 50.8 | 51.8 | $-1442.19 | -5.4% | $-442.19 | -2.9 | done | losing for real |
+| always_up | 2652 | 47.6 | 49.7 | $-2180.01 | -8.2% | $-1180.01 | -4.2 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 4174 | 48.3 | 49.3 | $-2576.62 |
+| BTC | 4177 | 48.3 | 49.3 | $-2590.92 |
 | ETH | 4585 | 48.2 | 48.7 | $-2870.07 |
 | SOL | 4784 | 48.2 | 48.8 | $-2795.01 |
 | XRP | 4830 | 48.6 | 48.6 | $-2290.84 |
