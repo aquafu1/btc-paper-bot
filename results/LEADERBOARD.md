@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Thu Nov 19, 3:00 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 796 windows, 21905 settled trades, 51 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Thu Nov 19, 3:05 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 796 windows, 21910 settled trades, 46 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -10,19 +10,19 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | momentum_60m_0.30pct | 1849 | 50.2 | 49.6 | $-675.56 | -3.7% | $324.44 | -1.6 | done | can't tell from luck |
 | value_ev10 | 1001 | 37.8 | 39.2 | $-698.48 | -7.0% | $301.52 | -1.8 | done | can't tell from luck |
 | trend_filter | 1286 | 50.4 | 50.8 | $-717.79 | -5.6% | $282.21 | -2.1 | done | losing for real |
-| reversal_15m_0.10pct | 2238 | 50.7 | 50.6 | $-889.89 | -4.0% | $110.11 | -1.9 | done | can't tell from luck |
+| reversal_15m_0.10pct | 2239 | 50.7 | 50.6 | $-880.86 | -3.9% | $119.14 | -1.9 | done | can't tell from luck |
 | value_ev5 | 1511 | 40.0 | 41.1 | $-904.20 | -6.0% | $95.80 | -2.0 | done | can't tell from luck |
-| momentum_15m_0.10pct | 2238 | 49.3 | 50.2 | $-1276.66 | -5.7% | $-276.66 | -2.7 | done | losing for real |
-| momentum_5m_0.00pct | 3176 | 51.4 | 51.7 | $-1339.12 | -4.2% | $-339.12 | -2.5 | done | losing for real |
-| coinflip | 3176 | 50.3 | 50.3 | $-1339.67 | -4.2% | $-339.67 | -2.4 | done | losing for real |
+| momentum_15m_0.10pct | 2239 | 49.3 | 50.2 | $-1286.66 | -5.7% | $-286.66 | -2.7 | done | losing for real |
+| momentum_5m_0.00pct | 3177 | 51.4 | 51.7 | $-1349.12 | -4.2% | $-349.12 | -2.5 | done | losing for real |
+| coinflip | 3177 | 50.2 | 50.3 | $-1349.67 | -4.2% | $-349.67 | -2.4 | done | losing for real |
 | reversal_60m_0.30pct | 1849 | 49.8 | 51.2 | $-1361.44 | -7.4% | $-361.44 | -3.2 | done | losing for real |
-| always_up | 3176 | 47.4 | 49.6 | $-2726.72 | -8.6% | $-1726.72 | -4.8 | done | losing for real |
+| always_up | 3177 | 47.5 | 49.6 | $-2717.69 | -8.6% | $-1717.69 | -4.8 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 4976 | 48.3 | 49.1 | $-2871.96 |
+| BTC | 4981 | 48.3 | 49.1 | $-2883.91 |
 | ETH | 5458 | 48.2 | 48.5 | $-3428.68 |
 | SOL | 5707 | 48.3 | 48.6 | $-3130.28 |
 | XRP | 5764 | 48.5 | 48.5 | $-2870.98 |
