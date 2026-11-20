@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Thu Nov 19, 6:05 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 856 windows, 23642 settled trades, 21 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Thu Nov 19, 6:15 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 857 windows, 23645 settled trades, 34 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -14,9 +14,9 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | value_ev5 | 1633 | 39.9 | 41.0 | $-1015.18 | -6.2% | $-15.18 | -2.1 | done | losing for real |
 | momentum_15m_0.10pct | 2414 | 49.3 | 50.3 | $-1412.08 | -5.8% | $-412.08 | -2.9 | done | losing for real |
 | reversal_60m_0.30pct | 2003 | 49.8 | 51.0 | $-1479.22 | -7.4% | $-479.22 | -3.4 | done | losing for real |
-| coinflip | 3419 | 50.2 | 50.3 | $-1496.47 | -4.4% | $-496.47 | -2.6 | done | losing for real |
-| momentum_5m_0.00pct | 3419 | 51.3 | 51.7 | $-1555.41 | -4.5% | $-555.41 | -2.8 | done | losing for real |
-| always_up | 3419 | 46.9 | 49.5 | $-3271.31 | -9.6% | $-2271.31 | -5.6 | done | losing for real |
+| coinflip | 3420 | 50.2 | 50.3 | $-1481.76 | -4.3% | $-481.76 | -2.6 | done | losing for real |
+| momentum_5m_0.00pct | 3420 | 51.3 | 51.7 | $-1565.41 | -4.6% | $-565.41 | -2.8 | done | losing for real |
+| always_up | 3420 | 46.9 | 49.5 | $-3281.31 | -9.6% | $-2281.31 | -5.6 | done | losing for real |
 
 ## By coin (all strategies)
 
@@ -25,7 +25,7 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | BTC | 5392 | 48.3 | 49.0 | $-2946.57 |
 | ETH | 5888 | 48.1 | 48.5 | $-3848.25 |
 | SOL | 6169 | 48.3 | 48.5 | $-3529.38 |
-| XRP | 6193 | 48.3 | 48.5 | $-3485.26 |
+| XRP | 6196 | 48.3 | 48.5 | $-3490.54 |
 
 **How to read this:** a strategy makes money only if **Win % beats Break-even %**. Ignore anything under 200 trades. It should also clearly beat `coinflip` (random picks). **z** = how many standard errors the average profit is above zero; "real edge?" needs z of 2 or more, and even then let it keep running before trusting it. The 4 coins usually move together, so a strategy's trades in the same window aren't fully independent.
 
