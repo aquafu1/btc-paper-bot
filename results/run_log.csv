@@ -2025,3 +2025,4 @@ run_at_utc,note
 2026-11-21T08:30:20+00:00,"settled 5, waiting 30; entered 2:30 AM window (20s in): btc 7, eth 8, sol 10, xrp 8"
 2026-11-21T08:35:00+00:00,"settled 9, waiting 21"
 2026-11-21T08:45:20+00:00,"settled 21, waiting 33; entered 2:45 AM window (20s in): btc 7, eth 7, sol 10, xrp 10"
+2026-11-21T08:50:00+00:00,"settled 33, waiting 0"
