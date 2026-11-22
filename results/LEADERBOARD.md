@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Sun Nov 22, 1:15 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 1125 windows, 31126 settled trades, 27 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Sun Nov 22, 1:20 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 1125 windows, 31132 settled trades, 21 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -13,17 +13,17 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | value_ev5 | 2202 | 40.1 | 41.1 | $-1250.53 | -5.7% | $-250.53 | -2.3 | done | losing for real |
 | trend_filter | 1849 | 49.1 | 50.4 | $-1438.45 | -7.8% | $-438.45 | -3.4 | done | losing for real |
 | reversal_60m_0.30pct | 2636 | 50.3 | 51.1 | $-1656.26 | -6.3% | $-656.26 | -3.3 | done | losing for real |
-| coinflip | 4492 | 50.4 | 50.2 | $-1752.19 | -3.9% | $-752.19 | -2.6 | done | losing for real |
+| coinflip | 4494 | 50.4 | 50.2 | $-1772.19 | -3.9% | $-772.19 | -2.7 | done | losing for real |
 | momentum_15m_0.10pct | 3139 | 48.8 | 50.2 | $-2089.02 | -6.7% | $-1089.02 | -3.8 | done | losing for real |
-| momentum_5m_0.00pct | 4492 | 50.3 | 51.4 | $-2667.50 | -5.9% | $-1667.50 | -4.1 | done | losing for real |
-| always_up | 4492 | 47.8 | 49.3 | $-3373.55 | -7.5% | $-2373.55 | -5.0 | done | losing for real |
+| momentum_5m_0.00pct | 4494 | 50.3 | 51.4 | $-2668.73 | -5.9% | $-1668.73 | -4.1 | done | losing for real |
+| always_up | 4494 | 47.8 | 49.3 | $-3374.77 | -7.5% | $-2374.77 | -5.0 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 7137 | 48.4 | 49.0 | $-3620.07 |
-| ETH | 7712 | 48.2 | 48.4 | $-4594.82 |
+| BTC | 7140 | 48.3 | 49.0 | $-3631.30 |
+| ETH | 7715 | 48.2 | 48.4 | $-4606.04 |
 | SOL | 8101 | 48.0 | 48.4 | $-4542.10 |
 | XRP | 8176 | 48.2 | 48.2 | $-4637.75 |
 
