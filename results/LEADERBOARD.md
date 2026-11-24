@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Tue Nov 24, 12:45 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 1315 windows, 34909 settled trades, 408 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Tue Nov 24, 12:50 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 1315 windows, 34913 settled trades, 404 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -12,18 +12,18 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | value_ev5 | 2541 | 40.5 | 41.1 | $-1266.90 | -5.0% | $-266.90 | -2.1 | done | losing for real |
 | momentum_60m_0.30pct | 2933 | 49.4 | 49.4 | $-1393.59 | -4.8% | $-393.59 | -2.6 | done | losing for real |
 | reversal_60m_0.30pct | 2933 | 50.6 | 50.9 | $-1579.18 | -5.4% | $-579.18 | -3.0 | done | losing for real |
-| trend_filter | 2076 | 48.8 | 50.5 | $-1742.39 | -8.4% | $-742.39 | -3.9 | done | losing for real |
+| trend_filter | 2077 | 48.8 | 50.5 | $-1752.39 | -8.4% | $-752.39 | -3.9 | done | losing for real |
 | momentum_15m_0.10pct | 3497 | 49.2 | 50.2 | $-2184.55 | -6.2% | $-1184.55 | -3.7 | done | losing for real |
-| coinflip | 5020 | 49.9 | 50.0 | $-2326.18 | -4.6% | $-1326.18 | -3.3 | done | losing for real |
-| momentum_5m_0.00pct | 5020 | 50.3 | 51.4 | $-2949.42 | -5.9% | $-1949.42 | -4.3 | done | losing for real |
-| always_up | 5020 | 47.9 | 49.3 | $-3635.83 | -7.2% | $-2635.83 | -5.1 | done | losing for real |
+| coinflip | 5021 | 49.9 | 50.0 | $-2308.58 | -4.6% | $-1308.58 | -3.3 | done | losing for real |
+| momentum_5m_0.00pct | 5021 | 50.3 | 51.4 | $-2959.42 | -5.9% | $-1959.42 | -4.3 | done | losing for real |
+| always_up | 5021 | 47.9 | 49.3 | $-3645.83 | -7.3% | $-2645.83 | -5.1 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
 | BTC | 8468 | 47.9 | 48.8 | $-5045.46 |
-| ETH | 9131 | 48.2 | 48.2 | $-4794.44 |
+| ETH | 9135 | 48.2 | 48.2 | $-4806.84 |
 | SOL | 8627 | 48.3 | 48.4 | $-4336.33 |
 | XRP | 8683 | 48.1 | 48.2 | $-5247.90 |
 
