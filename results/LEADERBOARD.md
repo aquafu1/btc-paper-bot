@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Wed Nov 25, 11:20 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 1453 windows, 36832 settled trades, 354 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Wed Nov 25, 11:30 PM CT.** Running since Tue Nov 10, 3:15 PM CT: 1454 windows, 36835 settled trades, 368 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -13,17 +13,17 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | momentum_60m_0.30pct | 3086 | 49.2 | 49.3 | $-1549.82 | -5.0% | $-549.82 | -2.8 | done | losing for real |
 | reversal_60m_0.30pct | 3086 | 50.8 | 51.0 | $-1563.10 | -5.1% | $-563.10 | -2.9 | done | losing for real |
 | trend_filter | 2184 | 48.6 | 50.3 | $-1867.56 | -8.6% | $-867.56 | -4.1 | done | losing for real |
-| coinflip | 5297 | 50.0 | 50.0 | $-2255.75 | -4.3% | $-1255.75 | -3.1 | done | losing for real |
+| coinflip | 5298 | 50.0 | 50.0 | $-2265.75 | -4.3% | $-1265.75 | -3.1 | done | losing for real |
 | momentum_15m_0.10pct | 3670 | 49.1 | 50.2 | $-2281.05 | -6.2% | $-1281.05 | -3.8 | done | losing for real |
-| momentum_5m_0.00pct | 5297 | 50.1 | 51.3 | $-3295.52 | -6.2% | $-2295.52 | -4.7 | done | losing for real |
-| always_up | 5297 | 48.0 | 49.2 | $-3576.84 | -6.8% | $-2576.84 | -4.9 | done | losing for real |
+| momentum_5m_0.00pct | 5298 | 50.2 | 51.3 | $-3282.92 | -6.2% | $-2282.92 | -4.6 | done | losing for real |
+| always_up | 5298 | 48.0 | 49.2 | $-3586.84 | -6.8% | $-2586.84 | -4.9 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
 | BTC | 9416 | 48.0 | 48.7 | $-5099.63 |
-| ETH | 10106 | 48.0 | 48.0 | $-5597.32 |
+| ETH | 10109 | 48.0 | 48.0 | $-5604.72 |
 | SOL | 8627 | 48.3 | 48.4 | $-4336.33 |
 | XRP | 8683 | 48.1 | 48.2 | $-5247.90 |
 
