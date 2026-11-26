@@ -1,6 +1,6 @@
 # Paper trading leaderboard (FAKE money)
 
-**Updated Thu Nov 26, 4:15 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 1473 windows, 37096 settled trades, 331 waiting for results. Coins: BTC, ETH, SOL, XRP.
+**Updated Thu Nov 26, 4:20 AM CT.** Running since Tue Nov 10, 3:15 PM CT: 1473 windows, 37099 settled trades, 328 waiting for results. Coins: BTC, ETH, SOL, XRP.
 
 Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min window opens at the real Polymarket order-book price, with Polymarket's real fee, settled by Polymarket's official result.
 
@@ -14,15 +14,15 @@ Each strategy: $1000 fake bankroll, $10 per trade, bought ~20s after each 15-min
 | reversal_60m_0.30pct | 3104 | 50.8 | 51.0 | $-1581.15 | -5.1% | $-581.15 | -2.9 | done | losing for real |
 | trend_filter | 2203 | 48.6 | 50.3 | $-1895.16 | -8.6% | $-895.16 | -4.1 | done | losing for real |
 | momentum_15m_0.10pct | 3698 | 49.1 | 50.2 | $-2332.21 | -6.3% | $-1332.21 | -3.9 | done | losing for real |
-| coinflip | 5336 | 49.9 | 50.0 | $-2391.18 | -4.5% | $-1391.18 | -3.3 | done | losing for real |
-| momentum_5m_0.00pct | 5336 | 50.1 | 51.3 | $-3383.57 | -6.3% | $-2383.57 | -4.8 | done | losing for real |
-| always_up | 5336 | 48.1 | 49.2 | $-3556.76 | -6.7% | $-2556.76 | -4.8 | done | losing for real |
+| coinflip | 5337 | 49.9 | 50.0 | $-2401.18 | -4.5% | $-1401.18 | -3.3 | done | losing for real |
+| momentum_5m_0.00pct | 5337 | 50.1 | 51.3 | $-3393.57 | -6.4% | $-2393.57 | -4.8 | done | losing for real |
+| always_up | 5337 | 48.1 | 49.2 | $-3547.63 | -6.6% | $-2547.63 | -4.8 | done | losing for real |
 
 ## By coin (all strategies)
 
 | Coin | Trades | Win % | Break-even % | P&L |
 |---|---|---|---|---|
-| BTC | 9537 | 48.0 | 48.7 | $-5284.76 |
+| BTC | 9540 | 48.0 | 48.7 | $-5295.63 |
 | ETH | 10249 | 47.9 | 48.0 | $-5892.40 |
 | SOL | 8627 | 48.3 | 48.4 | $-4336.33 |
 | XRP | 8683 | 48.1 | 48.2 | $-5247.90 |
